@@ -1,2 +1,5 @@
 vk.api
 requests
+threading
+filemath
+pathlib
