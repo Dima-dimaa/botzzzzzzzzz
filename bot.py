@@ -7,44 +7,44 @@ from SimpleQIWI import *
 
 keyboard = VkKeyboard(one_time=False)
 # 1
-keyboard.add_button('Купить акк ??', color=VkKeyboardColor.POSITIVE)
-keyboard.add_button('Продать акк ??', color=VkKeyboardColor.NEGATIVE)
+keyboard.add_button('РљСѓРїРёС‚СЊ Р°РєРє рџ‡', color=VkKeyboardColor.POSITIVE)
+keyboard.add_button('РџСЂРѕРґР°С‚СЊ Р°РєРє рџ™„', color=VkKeyboardColor.NEGATIVE)
 keyboard.add_line()
-keyboard.add_button('Баланс ??', color=VkKeyboardColor.PRIMARY)
-keyboard.add_button('Пополнить ??', color=VkKeyboardColor.PRIMARY)
+keyboard.add_button('Р‘Р°Р»Р°РЅСЃ рџ’°', color=VkKeyboardColor.PRIMARY)
+keyboard.add_button('РџРѕРїРѕР»РЅРёС‚СЊ рџ’і', color=VkKeyboardColor.PRIMARY)
 keyboard.add_line()
-keyboard.add_button('Вывод ??', color=VkKeyboardColor.SECONDARY)
+keyboard.add_button('Р’С‹РІРѕРґ рџ’ё', color=VkKeyboardColor.SECONDARY)
 
 clava2 = VkKeyboard(one_time=False)
-clava2.add_button('Оплата Qiwi ??', color=VkKeyboardColor.PRIMARY)
+clava2.add_button('РћРїР»Р°С‚Р° Qiwi рџҐќ', color=VkKeyboardColor.PRIMARY)
 clava2.add_line()
-clava2.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava2.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 
 clava3 = VkKeyboard(one_time=False)
-clava3.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava3.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 
 clava4 = VkKeyboard(one_time=False)
-clava4.add_button('Меню ??', color=VkKeyboardColor.NEGATIVE)
+clava4.add_button('РњРµРЅСЋ рџЏ ', color=VkKeyboardColor.NEGATIVE)
 clava4.add_line()
-clava4.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava4.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 clava5 = VkKeyboard(one_time=False)
-clava5.add_button('Купить аккаунт ??', color=VkKeyboardColor.PRIMARY)
+clava5.add_button('РљСѓРїРёС‚СЊ Р°РєРєР°СѓРЅС‚ рџ‡', color=VkKeyboardColor.PRIMARY)
 clava5.add_line()
-clava5.add_button('Информация об аккаунте ?', color=VkKeyboardColor.PRIMARY)
+clava5.add_button('РРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°РєРєР°СѓРЅС‚Рµ вњЏ', color=VkKeyboardColor.PRIMARY)
 clava5.add_line()
-clava5.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava5.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 clava6 = VkKeyboard(one_time=False)
-clava6.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava6.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 clava7 = VkKeyboard(one_time=False)
-clava7.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava7.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 clava8 = VkKeyboard(one_time=False)
-clava8.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava8.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 clava9 = VkKeyboard(one_time=False)
 clava9.add_button('VK', color=VkKeyboardColor.PRIMARY)
 clava9.add_line()
-clava9.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava9.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 clava10 = VkKeyboard(one_time=False)
-clava10.add_button('Назад ?', color=VkKeyboardColor.SECONDARY)
+clava10.add_button('РќР°Р·Р°Рґ в†©', color=VkKeyboardColor.SECONDARY)
 
 def check(x):
     file = open('baza.txt', 'r', encoding='utf-8')
@@ -84,15 +84,15 @@ def extract_arg2(arg2):
 
 
 def payment_history_last(my_login, api_access_token, rows_num, next_TxnId, next_TxnDate):
-    # сессия для рекуест
+    # СЃРµСЃСЃРёСЏ РґР»СЏ СЂРµРєСѓРµСЃС‚
     s = requests.Session()
-    # добавляем рекуесту headers
+    # РґРѕР±Р°РІР»СЏРµРј СЂРµРєСѓРµСЃС‚Сѓ headers
     s.headers['authorization'] = 'Bearer ' + api_access_token
-    # параметры
+    # РїР°СЂР°РјРµС‚СЂС‹
     parameters = {'rows': rows_num, 'nextTxnId': next_TxnId, 'nextTxnDate': next_TxnDate}
-    # через рекуест получаем платежы с параметрами - parameters
+    # С‡РµСЂРµР· СЂРµРєСѓРµСЃС‚ РїРѕР»СѓС‡Р°РµРј РїР»Р°С‚РµР¶С‹ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё - parameters
     h = s.get('https://edge.qiwi.com/payment-history/v2/persons/' + my_login + '/payments', params=parameters)
-    # обязательно json все объекты в киви апи json
+    # РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ json РІСЃРµ РѕР±СЉРµРєС‚С‹ РІ РєРёРІРё Р°РїРё json
     return h.json()
 
 
@@ -129,7 +129,7 @@ def QiwiCheck(number, api):
                 a.write(txnId)
                 a.close()
 
-                write_message(int(comm[1:]), "На ваш баланс зачисленно " + str(sum) + "р\n\nУдачных покупок!")
+                write_message(int(comm[1:]), "РќР° РІР°С€ Р±Р°Р»Р°РЅСЃ Р·Р°С‡РёСЃР»РµРЅРЅРѕ " + str(sum) + "СЂ\n\nРЈРґР°С‡РЅС‹С… РїРѕРєСѓРїРѕРє!")
 
             except:
                 pass
@@ -196,8 +196,8 @@ def rass(soob, xui, govno, jopa):
                     fail += 1
                     continue
             so_ob = "none"
-            write_message("574170405", "Рассылку получило - " + str(succes) + " пользователей")
-            write_message("574170405", "Заблокировали бота - " + str(fail) + " пользователей")
+            write_message("574170405", "Р Р°СЃСЃС‹Р»РєСѓ РїРѕР»СѓС‡РёР»Рѕ - " + str(succes) + " РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№")
+            write_message("574170405", "Р—Р°Р±Р»РѕРєРёСЂРѕРІР°Р»Рё Р±РѕС‚Р° - " + str(fail) + " РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№")
 
 
 token = "9b720406d3ce593777a5fdb31c18b07a74ad8207ef1ff8ff85d41ecd932c5e4b8dd3c793d76e3f91e7524"
@@ -218,15 +218,15 @@ for event in longpoll.listen():
             i = int(i)
         reseived_message = event.text.lower()
         sender = event.user_id
-        user = authorize.method("users.get", {"user_ids": event.user_id})  # вместо 1 подставляете айди нужного юзера
+        user = authorize.method("users.get", {"user_ids": event.user_id})  # РІРјРµСЃС‚Рѕ 1 РїРѕРґСЃС‚Р°РІР»СЏРµС‚Рµ Р°Р№РґРё РЅСѓР¶РЅРѕРіРѕ СЋР·РµСЂР°
         name = user[0]['first_name']
 
-        if reseived_message == 'начать' \
-                or reseived_message == 'привет' \
-                or reseived_message == 'ку' \
-                or reseived_message == 'хай' \
-                or reseived_message == 'здравствуйте' \
-                or reseived_message == 'дарова':
+        if reseived_message == 'РЅР°С‡Р°С‚СЊ' \
+                or reseived_message == 'РїСЂРёРІРµС‚' \
+                or reseived_message == 'РєСѓ' \
+                or reseived_message == 'С…Р°Р№' \
+                or reseived_message == 'Р·РґСЂР°РІСЃС‚РІСѓР№С‚Рµ' \
+                or reseived_message == 'РґР°СЂРѕРІР°':
             if check(sender) == 0:
                 adder(sender)
 
@@ -244,36 +244,36 @@ for event in longpoll.listen():
                 a.write("0")
                 a.close()
 
-            write_message(sender, "Выбери:")
-        elif reseived_message[0:22] == 'информация об аккаунте' and i == 5:
+            write_message(sender, "Р’С‹Р±РµСЂРё:")
+        elif reseived_message[0:22] == 'РёРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°РєРєР°СѓРЅС‚Рµ' and i == 5:
             a = open(str(event.user_id) + "c.txt", "w")
             a.write("7")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, 'Введите код аккаунта для получения информации:')
-        elif reseived_message[0:14] == 'купить аккаунт' and i == 5:
+            write_message(sender, 'Р’РІРµРґРёС‚Рµ РєРѕРґ Р°РєРєР°СѓРЅС‚Р° РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё:')
+        elif reseived_message[0:14] == 'РєСѓРїРёС‚СЊ Р°РєРєР°СѓРЅС‚' and i == 5:
             a = open(str(event.user_id) + "c.txt", "w")
             a.write("6")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, 'Введите код аккаунта:')
-        elif reseived_message[0:10] == "купить акк" and i == 1:
+            write_message(sender, 'Р’РІРµРґРёС‚Рµ РєРѕРґ Р°РєРєР°СѓРЅС‚Р°:')
+        elif reseived_message[0:10] == "РєСѓРїРёС‚СЊ Р°РєРє" and i == 1:
             a = open(str(event.user_id) + "c.txt", "w")
             a.write("5")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, 'Выбери:')
-        elif reseived_message[0:11] == "продать акк" and i == 1:
+            write_message(sender, 'Р’С‹Р±РµСЂРё:')
+        elif reseived_message[0:11] == "РїСЂРѕРґР°С‚СЊ Р°РєРє" and i == 1:
             try:
                 open(str(event.user_id) + "ac.txt", "r")
                 open(str(event.user_id) + "acc.txt", "r")
-                write_message(sender,f'У вас уже есть аккаунт на продаже !!! \nДля отмены напишите: \nОтмена {sender}')
+                write_message(sender,f'РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ Р°РєРєР°СѓРЅС‚ РЅР° РїСЂРѕРґР°Р¶Рµ !!! \nР”Р»СЏ РѕС‚РјРµРЅС‹ РЅР°РїРёС€РёС‚Рµ: \nРћС‚РјРµРЅР° {sender}')
             except:
                 a = open(str(event.user_id) + "c.txt", "w")
                 a.write("9")
@@ -281,7 +281,7 @@ for event in longpoll.listen():
                 with open(str(event.user_id) + "c.txt", "r") as ca:
                     i = ca.read()
                     i = int(i)
-                write_message(sender, 'Выберите тип аккаунта:')
+                write_message(sender, 'Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї Р°РєРєР°СѓРЅС‚Р°:')
 
         elif reseived_message[0:2] == "vk" and i == 9:
             a = open(str(sender) + "vk.txt", "w")
@@ -294,11 +294,11 @@ for event in longpoll.listen():
                 i = ca.read()
                 i = int(i)
             write_message(sender,
-                          'Пожалуйста расскажите о вашем аккаунте перед продажей: \n\n- Что это за аккаунт ?\n- Какие у него плюсы ?'
-                          '\nСтоимость вы укажите позже, после описания :)')
-        elif reseived_message[0:5] == "вывод" and i == 1:
+                          'РџРѕР¶Р°Р»СѓР№СЃС‚Р° СЂР°СЃСЃРєР°Р¶РёС‚Рµ Рѕ РІР°С€РµРј Р°РєРєР°СѓРЅС‚Рµ РїРµСЂРµРґ РїСЂРѕРґР°Р¶РµР№: \n\n- Р§С‚Рѕ СЌС‚Рѕ Р·Р° Р°РєРєР°СѓРЅС‚ вќ“\n- РљР°РєРёРµ Сѓ РЅРµРіРѕ РїР»СЋСЃС‹ вњ…'
+                          '\nРЎС‚РѕРёРјРѕСЃС‚СЊ РІС‹ СѓРєР°Р¶РёС‚Рµ РїРѕР·Р¶Рµ, РїРѕСЃР»Рµ РѕРїРёСЃР°РЅРёСЏ :)')
+        elif reseived_message[0:5] == "РІС‹РІРѕРґ" and i == 1:
             write_message(sender,
-                          "Введите номер Qiwi и сумму вывода ?? \nПример: \n+79283335522 50 \n+77074470707 75 \n+380443777355 100 \n+375297556655 150 \nКомиссия за вывод 10 - %")
+                          "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Qiwi Рё СЃСѓРјРјСѓ РІС‹РІРѕРґР° рџ’ё \nРџСЂРёРјРµСЂ: \n+79283335522 50 \n+77074470707 75 \n+380443777355 100 \n+375297556655 150 \nРљРѕРјРёСЃСЃРёСЏ Р·Р° РІС‹РІРѕРґ 10 - %")
         elif reseived_message[0:3] == "+79" and i == 1\
                 or reseived_message[0:3] == "+77" and i == 1 \
                 or reseived_message[0:4] == "+380" and i == 1 \
@@ -329,23 +329,23 @@ for event in longpoll.listen():
 
                         token = '28540e35aa5c152017cec0f4340a4569'
                         phone = '79283692011'
-                        print('1 так')
+                        print('1 С‚Р°Рє')
                         api = QApi(token=token, phone=phone)
-                        print('2 так')
-                        api.pay(account=str(deen), amount=str(den), comment="Покупка - продажа аккаунтов !!!")
-                        print('3 так')
+                        print('2 С‚Р°Рє')
+                        api.pay(account=str(deen), amount=str(den), comment="РџРѕРєСѓРїРєР° - РїСЂРѕРґР°Р¶Р° Р°РєРєР°СѓРЅС‚РѕРІ !!!")
+                        print('3 С‚Р°Рє')
 
                         write_message(sender,
-                                      f"Ожидайте вывод в течении: \n5 - минут !!! \nСумма к начислению: {den} руб.")
+                                      f"РћР¶РёРґР°Р№С‚Рµ РІС‹РІРѕРґ РІ С‚РµС‡РµРЅРёРё: \n5 - РјРёРЅСѓС‚ !!! \nРЎСѓРјРјР° Рє РЅР°С‡РёСЃР»РµРЅРёСЋ: {den} СЂСѓР±.")
                         write_message(574170405,
-                                      f"Новый вывод! \n[https://vk.com/id{sender}|{fullname}] \nСумма: {den}")
+                                      f"РќРѕРІС‹Р№ РІС‹РІРѕРґ! \n[https://vk.com/id{sender}|{fullname}] \nРЎСѓРјРјР°: {den}")
                     else:
-                        write_message(sender, 'Сумма не может быть меньше 35 руб !!!')
+                        write_message(sender, 'РЎСѓРјРјР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ 35 СЂСѓР± !!!')
                 else:
-                    write_message(sender, 'У вас нет таких денег !!!')
+                    write_message(sender, 'РЈ РІР°СЃ РЅРµС‚ С‚Р°РєРёС… РґРµРЅРµРі !!!')
             except:
-                write_message(sender, 'Не верные данные!')
-        elif reseived_message[0:6] == "баланс":
+                write_message(sender, 'РќРµ РІРµСЂРЅС‹Рµ РґР°РЅРЅС‹Рµ!')
+        elif reseived_message[0:6] == "Р±Р°Р»Р°РЅСЃ":
             try:
                 a = open(str(event.user_id) + ".txt", "r")
                 a.close()
@@ -356,8 +356,8 @@ for event in longpoll.listen():
             with open(str(sender) + ".txt", "r") as ba:
                 bal = ba.read()
                 bal == str(bal)
-            write_message(sender, "Ваш текущий баланс: " + bal + " руб.")
-        elif reseived_message[0:4] == 'меню' and i == 4 or reseived_message[0:4] == 'меню' and i == 10:
+            write_message(sender, "Р’Р°С€ С‚РµРєСѓС‰РёР№ Р±Р°Р»Р°РЅСЃ: " + bal + " СЂСѓР±.")
+        elif reseived_message[0:4] == 'РјРµРЅСЋ' and i == 4 or reseived_message[0:4] == 'РјРµРЅСЋ' and i == 10:
             a = open(str(sender) + "c.txt", "w")
             a.write("1")
             a.close()
@@ -366,8 +366,8 @@ for event in longpoll.listen():
                 i = int(i)
             file = pathlib.Path(f"{sender}ac.txt")
             file.unlink()
-            write_message(sender, "Выбери:")
-        elif reseived_message[0:5] == 'назад' and i == 4:
+            write_message(sender, "Р’С‹Р±РµСЂРё:")
+        elif reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 4:
             a = open(str(sender) + "c.txt", "w")
             a.write("3")
             a.close()
@@ -380,29 +380,29 @@ for event in longpoll.listen():
                 i = ca.read()
                 i = int(i)
             write_message(sender,
-                          'Пожалуйста расскажите о вашем аккаунте перед продажей: \n\n- Что это за аккаунт ?\n- Каие у него плюсы ?'
-                          '\nСтоимость вы укажите позже, после описания :)')
-        elif reseived_message[0:5] == 'назад' and i == 6 or \
-                reseived_message[0:5] == 'назад' and i == 7:
+                          'РџРѕР¶Р°Р»СѓР№СЃС‚Р° СЂР°СЃСЃРєР°Р¶РёС‚Рµ Рѕ РІР°С€РµРј Р°РєРєР°СѓРЅС‚Рµ РїРµСЂРµРґ РїСЂРѕРґР°Р¶РµР№: \n\n- Р§С‚Рѕ СЌС‚Рѕ Р·Р° Р°РєРєР°СѓРЅС‚ вќ“\n- РљР°РёРµ Сѓ РЅРµРіРѕ РїР»СЋСЃС‹ вњ…'
+                          '\nРЎС‚РѕРёРјРѕСЃС‚СЊ РІС‹ СѓРєР°Р¶РёС‚Рµ РїРѕР·Р¶Рµ, РїРѕСЃР»Рµ РѕРїРёСЃР°РЅРёСЏ :)')
+        elif reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 6 or \
+                reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 7:
             a = open(str(sender) + "c.txt", "w")
             a.write("5")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, "Выбери:")
-        elif reseived_message[0:6] == "отмена":
+            write_message(sender, "Р’С‹Р±РµСЂРё:")
+        elif reseived_message[0:6] == "РѕС‚РјРµРЅР°":
             smd = extract_arg(reseived_message)
             if int(smd) == sender:
                 try:
                     file = pathlib.Path(f"{smd}ac.txt")
                     file.unlink()
-                    write_message(event.user_id, "Аккаунт удалён !!!")
+                    write_message(event.user_id, "РђРєРєР°СѓРЅС‚ СѓРґР°Р»С‘РЅ !!!")
                 except:
-                    write_message(event.user_id, "У вас нет аккаунтов на продаже !!!")
+                    write_message(event.user_id, "РЈ РІР°СЃ РЅРµС‚ Р°РєРєР°СѓРЅС‚РѕРІ РЅР° РїСЂРѕРґР°Р¶Рµ !!!")
             else:
-                write_message(event.user_id, "Не верный код !!!")
-        elif reseived_message[0:5] == 'назад' and i == 3:
+                write_message(event.user_id, "РќРµ РІРµСЂРЅС‹Р№ РєРѕРґ !!!")
+        elif reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 3:
             try:
                 file = pathlib.Path(f"{sender}ac.txt")
                 file.unlink()
@@ -414,65 +414,65 @@ for event in longpoll.listen():
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, "Выбери:")
-        elif reseived_message[0:5] == 'назад' and i == 10:
+            write_message(sender, "Р’С‹Р±РµСЂРё:")
+        elif reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 10:
             a = open(str(sender) + "c.txt", "w")
             a.write("8")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, "Введите логин:")
-        elif reseived_message[0:5] == 'назад' and i == 8:
+            write_message(sender, "Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ:")
+        elif reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 8:
             a = open(str(sender) + "c.txt", "w")
             a.write("4")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, 'Отлично укажите сумму: \nПример: 25')
-        elif reseived_message[0:5] == 'назад' and i == 2 or \
-                reseived_message[0:5] == 'назад' and i == 9 or \
-                reseived_message[0:5] == 'назад' and i == 5:
+            write_message(sender, 'РћС‚Р»РёС‡РЅРѕ СѓРєР°Р¶РёС‚Рµ СЃСѓРјРјСѓ: \nРџСЂРёРјРµСЂ: 25')
+        elif reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 2 or \
+                reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 9 or \
+                reseived_message[0:5] == 'РЅР°Р·Р°Рґ' and i == 5:
             a = open(str(sender) + "c.txt", "w")
             a.write("1")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, "Выбери:")
-        elif reseived_message[0:8] == "рассылка":
+            write_message(sender, "Р’С‹Р±РµСЂРё:")
+        elif reseived_message[0:8] == "СЂР°СЃСЃС‹Р»РєР°":
             if sender == 574170405:
                 a = 0
                 try:
                     sm = extract_arg(event.text)
                     a = 1
                 except:
-                    write_message(event.user_id, "Вы не указали текст для рассылки")
+                    write_message(event.user_id, "Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё С‚РµРєСЃС‚ РґР»СЏ СЂР°СЃСЃС‹Р»РєРё")
                 if a == 1:
                     with open(str(event.user_id) + "c.txt", "r") as ca:
                         i = ca.read()
                         i = int(i)
-                    write_message(event.user_id, "Рссылка началась")
+                    write_message(event.user_id, "Р СЃСЃС‹Р»РєР° РЅР°С‡Р°Р»Р°СЃСЊ")
                     sms = event.text[8:]
                     so_ob = sms
                     t = threading.Thread(target=rass, args=(sms, 1, 2, 3))
                     t.start()
                 else:
-                    write_message(sender, 'Вы не являетесь администратором !!!')
-        elif reseived_message[0:9] == "пополнить":
+                    write_message(sender, 'Р’С‹ РЅРµ СЏРІР»СЏРµС‚РµСЃСЊ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРј !!!')
+        elif reseived_message[0:9] == "РїРѕРїРѕР»РЅРёС‚СЊ":
             a = open(str(event.user_id) + "c.txt", "w")
             a.write("2")
             a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
-            write_message(sender, "Выберите способ оплаты")
-        elif reseived_message[0:11] == "оплата qiwi" and i == 2:
+            write_message(sender, "Р’С‹Р±РµСЂРёС‚Рµ СЃРїРѕСЃРѕР± РѕРїР»Р°С‚С‹")
+        elif reseived_message[0:11] == "РѕРїР»Р°С‚Р° qiwi" and i == 2:
                 write_message(sender,
-                              'Qiwi-кошелёк: +79283692011 \nНе забудьте указать этот код в комментариях к платежу: ' + "1" + str(sender) + ' ? '
-                                            '\n\nПосле оплаты на ваш баланс автоматически в течении минуты будет зачисленна сумма перевода, если оплата придет вам сообщат')
-        elif reseived_message[0:2] == "фф":
+                              'Qiwi-РєРѕС€РµР»С‘Рє: +79283692011 \nРќРµ Р·Р°Р±СѓРґСЊС‚Рµ СѓРєР°Р·Р°С‚СЊ СЌС‚РѕС‚ РєРѕРґ РІ РєРѕРјРјРµРЅС‚Р°СЂРёСЏС… Рє РїР»Р°С‚РµР¶Сѓ: ' + "1" + str(sender) + ' вќ— '
+                                            '\n\nРџРѕСЃР»Рµ РѕРїР»Р°С‚С‹ РЅР° РІР°С€ Р±Р°Р»Р°РЅСЃ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІ С‚РµС‡РµРЅРёРё РјРёРЅСѓС‚С‹ Р±СѓРґРµС‚ Р·Р°С‡РёСЃР»РµРЅРЅР° СЃСѓРјРјР° РїРµСЂРµРІРѕРґР°, РµСЃР»Рё РѕРїР»Р°С‚Р° РїСЂРёРґРµС‚ РІР°Рј СЃРѕРѕР±С‰Р°С‚')
+        elif reseived_message[0:2] == "С„С„":
             if sender == 574170405 or sender == 554311036:
                 try:
                     id = extract_arg(reseived_message)
@@ -484,18 +484,18 @@ for event in longpoll.listen():
                     a = open(str(id) + ".txt", "w")
                     a.write(str(skoko + int(bal)))
                     a.close()
-                    write_message(event.user_id, "Готово")
-                    write_message(str(id), "На ваш баланс зачислено " + str(bal) + " руб.")
+                    write_message(event.user_id, "Р“РѕС‚РѕРІРѕ")
+                    write_message(str(id), "РќР° РІР°С€ Р±Р°Р»Р°РЅСЃ Р·Р°С‡РёСЃР»РµРЅРѕ " + str(bal) + " СЂСѓР±.")
                 except:
                     with open(str(event.user_id) + "c.txt", "r") as ca:
                             i = ca.read()
                             i = int(i)
-                    write_message(event.user_id, "Вы не указали айди или сумму")
+                    write_message(event.user_id, "Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё Р°Р№РґРё РёР»Рё СЃСѓРјРјСѓ")
             else:
                 with open(str(event.user_id) + "c.txt", "r") as ca:
                             i = ca.read()
                             i = int(i)
-                write_message(sender, 'Вы не являетесь администратором !!!')
+                write_message(sender, 'Р’С‹ РЅРµ СЏРІР»СЏРµС‚РµСЃСЊ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРј !!!')
         else:
             if i == 3:
                 a = open(str(event.user_id) + "ac.txt", "w", encoding='utf-8')
@@ -507,7 +507,7 @@ for event in longpoll.listen():
                 with open(str(event.user_id) + "c.txt", "r") as ca:
                     i = ca.read()
                     i = int(i)
-                write_message(sender, 'Отлично укажите сумму: \nПример: 25')
+                write_message(sender, 'РћС‚Р»РёС‡РЅРѕ СѓРєР°Р¶РёС‚Рµ СЃСѓРјРјСѓ: \nРџСЂРёРјРµСЂ: 25')
             elif i == 6:
                 try:
                     with open(str(sender) + "pass.txt", "r") as pa:
@@ -554,8 +554,8 @@ for event in longpoll.listen():
                             with open(str(sender) + ".txt", "r") as ba:
                                 bal = ba.read()
                                 bal == str(bal)
-                            write_message(str(reseived_message), "Ваш аккаунт купили :)")
-                            write_message(str(reseived_message), "На ваш баланс зачислено " + str(ddd) + " руб.")
+                            write_message(str(reseived_message), "Р’Р°С€ Р°РєРєР°СѓРЅС‚ РєСѓРїРёР»Рё :)")
+                            write_message(str(reseived_message), "РќР° РІР°С€ Р±Р°Р»Р°РЅСЃ Р·Р°С‡РёСЃР»РµРЅРѕ " + str(ddd) + " СЂСѓР±.")
                             file = pathlib.Path(str(reseived_message) + "ac.txt")
                             file.unlink()
                             file = pathlib.Path(str(reseived_message) + "aac.txt")
@@ -565,24 +565,24 @@ for event in longpoll.listen():
                             with open(str(event.user_id) + "c.txt", "r") as ca:
                                 i = ca.read()
                                 i = int(i)
-                            write_message(sender, f'Логин: {cdd} \nПароль: {pas}')
-                            write_message(sender, 'Поздравляем с покупкой :)')
+                            write_message(sender, f'Р›РѕРіРёРЅ: {cdd} \nРџР°СЂРѕР»СЊ: {pas}')
+                            write_message(sender, 'РџРѕР·РґСЂР°РІР»СЏРµРј СЃ РїРѕРєСѓРїРєРѕР№ :)')
                         else:
-                            write_message(sender, 'У вас недостаточно средств !!!')
+                            write_message(sender, 'РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ !!!')
                     else:
-                        write_message(sender, 'Хм.. \nНе верный логин или пароль !!!')
+                        write_message(sender, 'РҐРј.. \nРќРµ РІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ !!!')
                         file = pathlib.Path(str(reseived_message) + "ac.txt")
                         file.unlink()
                         file = pathlib.Path(str(reseived_message) + "aac.txt")
                         file.unlink()
                         file = pathlib.Path(str(reseived_message) + "acc.txt")
                         file.unlink()
-                        write_message((str(reseived_message)), 'У вас не верный логин или пароль !!! \nПокупатель не смог купить ваш аккаунт :(')
+                        write_message((str(reseived_message)), 'РЈ РІР°СЃ РЅРµ РІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ !!! \nРџРѕРєСѓРїР°С‚РµР»СЊ РЅРµ СЃРјРѕРі РєСѓРїРёС‚СЊ РІР°С€ Р°РєРєР°СѓРЅС‚ :(')
                 except:
                     with open(str(event.user_id) + "c.txt", "r") as ca:
                             i = ca.read()
                             i = int(i)
-                    write_message(sender, 'Аккаунт не найден :(')
+                    write_message(sender, 'РђРєРєР°СѓРЅС‚ РЅРµ РЅР°Р№РґРµРЅ :(')
             elif i == 8:
                 a = open(str(event.user_id) + "aac.txt", "w", encoding='utf-8')
                 a.write(f'{event.text}')
@@ -602,7 +602,7 @@ for event in longpoll.listen():
                 with open(str(event.user_id) + "c.txt", "r") as ca:
                     i = ca.read()
                     i = int(i)
-                write_message(sender, 'Введите пароль:')
+                write_message(sender, 'Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ:')
             elif i == 7:
                 try:
                     user = authorize.method("users.get", {"user_ids": reseived_message})
@@ -616,9 +616,9 @@ for event in longpoll.listen():
                     with open(str(event.user_id) + "c.txt", "r") as ca:
                             i = ca.read()
                             i = int(i)
-                    write_message(sender, f'Информация об аккаунте ?\nСоздал: [https://vk.com/id{reseived_message}|{fullname}] ?? \n\n{dd}\n\nЦена: {ddd} руб.')
+                    write_message(sender, f'РРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°РєРєР°СѓРЅС‚Рµ вњЏ\nРЎРѕР·РґР°Р»: [https://vk.com/id{reseived_message}|{fullname}] рџ‘¤ \n\n{dd}\n\nР¦РµРЅР°: {ddd} СЂСѓР±.')
                 except:
-                    write_message(sender, 'Информации об аккаунте: \nНе найдено :(')
+                    write_message(sender, 'РРЅС„РѕСЂРјР°С†РёРё РѕР± Р°РєРєР°СѓРЅС‚Рµ: \nРќРµ РЅР°Р№РґРµРЅРѕ :(')
                     with open(str(event.user_id) + "c.txt", "r") as ca:
                             i = ca.read()
                             i = int(i)
@@ -639,15 +639,15 @@ for event in longpoll.listen():
                             i = ca.read()
                             i = int(i)
                         write_message(sender,
-                                      f'Ваш аккаунт опубликован ? \nВаш код: {sender} \nМожете рассказать о нём здесь:\nhttps://vk.com/topic-202416186_46921809'
-                                      f'\nНо не забудьте добавить код чтобы у вас смогли купить его !!!')
+                                      f'Р’Р°С€ Р°РєРєР°СѓРЅС‚ РѕРїСѓР±Р»РёРєРѕРІР°РЅ вњ… \nР’Р°С€ РєРѕРґ: {sender} \nРњРѕР¶РµС‚Рµ СЂР°СЃСЃРєР°Р·Р°С‚СЊ Рѕ РЅС‘Рј Р·РґРµСЃСЊ:\nhttps://vk.com/topic-202416186_46921809'
+                                      f'\nРќРѕ РЅРµ Р·Р°Р±СѓРґСЊС‚Рµ РґРѕР±Р°РІРёС‚СЊ РєРѕРґ С‡С‚РѕР±С‹ Сѓ РІР°СЃ СЃРјРѕРіР»Рё РєСѓРїРёС‚СЊ РµРіРѕ !!!')
                     else:
-                        write_message(sender,'Не верный логин или пароль !!!')
+                        write_message(sender,'РќРµ РІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ !!!')
                 except:
                     with open(str(event.user_id) + "c.txt", "r") as ca:
                         i = ca.read()
                         i = int(i)
-                    write_message(sender, 'Что-то пошло не так :( \nПопробуйте ещё раз !!!')
+                    write_message(sender, 'Р§С‚Рѕ-С‚Рѕ РїРѕС€Р»Рѕ РЅРµ С‚Р°Рє :( \nРџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰С‘ СЂР°Р· !!!')
             elif i == 4:
                 try:
                     if int(event.text) > 0:
@@ -662,13 +662,13 @@ for event in longpoll.listen():
                         a = open(str(event.user_id) + "acc.txt", "w")
                         a.write(qq)
                         a.close()
-                        write_message(sender, 'Введите логин:')
+                        write_message(sender, 'Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ:')
                     else:
-                        write_message(sender, 'Сумма должна быть больше 0 !!!')
+                        write_message(sender, 'РЎСѓРјРјР° РґРѕР»Р¶РЅР° Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 0 !!!')
                 except:
-                    write_message(sender, f'"{reseived_message}" не является числом !!!')
+                    write_message(sender, f'"{reseived_message}" РЅРµ СЏРІР»СЏРµС‚СЃСЏ С‡РёСЃР»РѕРј !!!')
             else:
                 with open(str(event.user_id) + "c.txt", "r") as ca:
                             i = ca.read()
                             i = int(i)
-                write_message(sender, 'Я тя не понял :/')
+                write_message(sender, 'РЇ С‚СЏ РЅРµ РїРѕРЅСЏР» :/')
