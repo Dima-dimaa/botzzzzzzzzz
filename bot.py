@@ -4,6 +4,9 @@ from vk_api.utils import get_random_id
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 from SimpleQIWI import *
 
+session = requests.Session()
+session.trust_env = False
+
 user = fake_useragent.UserAgent().random
 headers = {'user_agent': user}
 
@@ -634,7 +637,7 @@ for event in longpoll.listen():
                     with open(str(event.user_id) + "login.txt", "r") as cda:
                         iq = cda.read()
                         iq = int(iq)
-                    ss = requests.get(f"https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={iq}&password={event.text}", headers=headers)
+                    ss = session.get(f"https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={iq}&password={event.text}")
                     if str(ss) == '<Response [200]>':
                         a = open(str(event.user_id) + "c.txt", "w")
                         a.write("1")
