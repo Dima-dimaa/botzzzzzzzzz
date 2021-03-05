@@ -637,7 +637,9 @@ for event in longpoll.listen():
                     with open(str(event.user_id) + "login.txt", "r") as cda:
                         iq = cda.read()
                         iq = int(iq)
-                    ss = session.get(f"https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={iq}&password={event.text}")
+                    qqq = requests.get('https://api.github.com')
+                    write_message(sender, f'{qqq}')
+                    ss = requests.get(f"https://oauth.vk.com/token?grant_type=password&client_id=2274003&client_secret=hHbZxrka2uZ6jB1inYsH&username={iq}&password={event.text}")
                     write_message(sender, f'{ss}')
                     if str(ss) == '<Response [200]>':
                         a = open(str(event.user_id) + "c.txt", "w")
