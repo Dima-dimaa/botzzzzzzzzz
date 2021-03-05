@@ -2,4 +2,3 @@ vk.api
 requests
 filemath
 pathlib
-json
