@@ -3,3 +3,4 @@ requests
 filemath
 pathlib
 SimpleQIWI
+fake-useragent
