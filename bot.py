@@ -1,4 +1,4 @@
-import vk_api, requests, time, threading, filemath, pathlib, os, urllib, json
+import vk_api, requests, time, threading, filemath, pathlib, os, urllib, json, fake_useragent
 from vk_api.longpoll import VkLongPoll, VkEventType
 from vk_api.utils import get_random_id
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
