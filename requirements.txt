@@ -1,6 +1,3 @@
-vk.api
+telebot
+pywwf
 requests
-filemath
-pathlib
-SimpleQIWI
-fake-useragent
