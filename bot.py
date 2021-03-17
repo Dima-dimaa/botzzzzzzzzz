@@ -302,6 +302,7 @@ try:
                     write_message(sender, 'У вас недостаточно средств :(')
             elif reseived_message[0:5] == 'admin':
                 write_message(sender, 'Уже позвал Админа :) \nЖдите ответ в течении 1 - часа !!!')
+                write_message(574170405, 'Зовут')            
             elif reseived_message[0:9] == 'розыгрыши':
                 try:
                     a = open(str(sender) + ".txt", "r")
