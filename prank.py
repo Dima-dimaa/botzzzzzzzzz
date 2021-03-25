@@ -335,7 +335,12 @@ try:
                                   sender) + ' ❗ '
                                             '\n\nПосле оплаты на ваш баланс автоматически в течении минуты будет зачисленна сумма перевода, если оплата придет вам сообщат')
             elif reseived_message[0:5] == 'назад' and i == 2 or reseived_message[0:5] == 'назад' and i == 3:
-                clava1(sender)
+                a = open(str(sender) + "c.txt", "w")
+                a.write("1")
+                a.close()
+                with open(str(sender) + "c.txt", "r") as ca:
+                    i = ca.read()
+                    i = int(i)
                 write_message(sender, 'Вы в главном меню: \n\n- Розыгрыши \n- Баланс \n- Пополнить')
             elif reseived_message[0:5] == 'назад' and i == 4:
                 a = open(str(sender) + "c.txt", "w")
