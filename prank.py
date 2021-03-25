@@ -164,7 +164,7 @@ try:
                 write_message("574170405", "Рассылку получило - " + str(succes) + " пользователей")
                 write_message("574170405", "Заблокировали бота - " + str(fail) + " пользователей")
 
-    token = "58be38fe16c679b894c6b7c0d42397a26d87b8a1944a1a3c38f883fd0df885bd16155de4d5d8ca9648c53"
+    token = "6243dea930e815d034d076468b6462ae22696dd8226b328188488386abb3e025c5410acbb393374f1ec00"
     authorize = vk_api.VkApi(token=token)
     longpoll = VkLongPoll(authorize)
     admin = 574170405
