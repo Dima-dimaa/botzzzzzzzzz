@@ -194,12 +194,19 @@ try:
                 write_message("574170405", "Рассылку получило - " + str(succes) + " пользователей")
                 write_message("574170405", "Заблокировали бота - " + str(fail) + " пользователей")
 
-    token = "58be38fe16c679b894c6b7c0d42397a26d87b8a1944a1a3c38f883fd0df885bd16155de4d5d8ca9648c53"
+    token = "6243dea930e815d034d076468b6462ae22696dd8226b328188488386abb3e025c5410acbb393374f1ec00"
     authorize = vk_api.VkApi(token=token)
     longpoll = VkLongPoll(authorize)
     admin = 574170405
     for event in longpoll.listen():
         if event.type == VkEventType.MESSAGE_NEW and event.to_me:
+            try:
+                a = open(str(event.user_id) + "c.txt", "r")
+                a.close()
+            except:
+                a = open(str(event.user_id) + "c.txt", "w")
+                a.write("1")
+                a.close()
             with open(str(event.user_id) + "c.txt", "r") as ca:
                 i = ca.read()
                 i = int(i)
@@ -218,13 +225,7 @@ try:
                     or reseived_message == 'дарова' and i == 1:
                 if check(sender) == 0:
                     adder(sender)
-                    try:
-                        a = open(str(sender) + ".txt", "r")
-                        a.close()
-                    except:
-                        a = open(str(sender) + ".txt", "w")
-                        a.write("0")
-                        a.close()
+          
                     with open(str(event.user_id) + "c.txt", "r") as ca:
                         i = ca.read()
                         i = int(i)
