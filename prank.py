@@ -262,7 +262,12 @@ try:
                 with open(str(event.user_id) + ".txt", "r") as ba2:
                     bal2 = ba2.read()
                     bal2 = int(bal2)
-                clava1(sender)
+                a = open(str(sender) + "c.txt", "w")
+                a.write("1")
+                a.close()
+                with open(str(sender) + "c.txt", "r") as ca:
+                    i = ca.read()
+                    i = int(i)
                 if bal2 >= 5:
                     if roz == 1:
                         tem = 'Увела друга'
